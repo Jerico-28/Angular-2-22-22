@@ -1,0 +1,51 @@
+<p>test works!</p>
+<!-- Attributes -->
+<!-- <input type="text" id="myName"> -->
+<!-- Property -->
+<!-- [] -> Property Binding / Binding -->
+<!-- {{ }} -> string or text -->
+<!-- Disabled = true -->
+<h4>Property Binding</h4>
+<input type="text" [disabled]="isDisabled" id="{{firstID}}">
+<hr>
+<h4>Class Binding</h4>
+<!-- [] -->
+<!-- 1st option -->
+<h3 [class]="fontColor">BSIT 3A</h3>
+<!-- 2nd option -->
+<h3 [class.color-green]="isTrue">BSIT 3A</h3>
+
+<!-- 3rd option --> <!-- [ngClass] -->
+<!-- <h3 [ngClass]="{'primary' : isSet, 'fontI' : isSet}">BSIT 3A</h3> -->
+<h3 [ngClass]="multipleClasses">BSIT 3A</h3>
+
+<hr>
+<h4>Event Binding</h4>
+<!-- Event Binding -->
+<!-- () -->
+<button (click)="enableInput()"> Enable Input</button>
+
+<input type="text" [disabled]="isDisabled" id="{{firstID}}">
+<br><br>
+<!-- Event Binding + Class Binding + Property Binding -->
+<!-- Success -> green
+     Error ->  red
+-->
+<button
+    (click)="enableStatus()"
+    [ngClass]="{'success' : toggle, 'error' : !toggle}"
+>
+    {{ status }} <!-- Status  -->
+</button>
+<hr>
+<h4>Two Way Binding</h4>
+<!-- Two Way Binding -->
+<!-- [(ngModel)] -->
+<input type="text" [(ngModel)]="myValue">
+<br>
+<textarea name="" id="" cols="30" rows="10">
+    {{ myValue }}
+</textarea>
+
+<hr>
+<button mat-raised-button color="primary">Primary</button>

@@ -1,0 +1,76 @@
+<!-- Template Reference Variable -->
+<input type="text" #postInput>
+<button (click)="logInput(postInput)"> Post Data</button>
+{{  postInput.value }}
+
+<!-- Structural Directives -->
+<hr>
+<!-- IF -->
+<!-- *ngIf -->
+<!-- <h3 *ngIf="false">
+    SHOW BSIT 3A
+</h3> -->
+
+<!-- If Else -->
+
+<div *ngIf="displaySection; then thenBlock; else elseBlock"></div>
+
+<!-- ng-template -->
+
+<ng-template #thenBlock> <!-- Then Block Sign -->
+    <h3>
+        SHOW BSIT 3A
+    </h3>
+</ng-template>
+
+<ng-template #elseBlock> <!-- Block Sign -->
+    <h3>
+        NO DATA FOUND
+    </h3>
+</ng-template>
+
+
+<hr>
+
+<!-- Switch Case -->
+<!-- [ngSwitch] 
+Case: *ngSwitchCase
+-->
+<!-- 
+    color
+        red = this is red
+        blue = this blue
+        green = green
+        no color found
+ -->
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'red'"> This is red</div>
+    <div *ngSwitchCase="'blue'"> This is blue</div>
+    <div *ngSwitchCase="'green'"> This is green</div>
+    <div *ngSwitchDefault> No Color Found</div>
+</div>
+
+<!-- 
+
+    grade 75 - 85 = average
+    grade 86 - 90 = exxcelent
+    grade 91 - 100 = superior
+    grade 74 below - failed
+    grade 101 = invalid
+
+ -->
+ <div [ngSwitch]="true">
+    <div *ngSwitchCase="grade >= 75 && grade <= 85"> Average</div>
+    <div *ngSwitchCase="grade >= 86 && grade <= 90"> Excellent</div>
+    <div *ngSwitchCase="grade >= 91 && grade <= 100"> Superior</div>
+    <div *ngSwitchCase="grade <= 74"> Failed</div>
+    <div *ngSwitchDefault> Invalid</div>
+</div>
+
+<hr>
+
+<!-- ngFor  -->
+<!-- Foreach => Array -->
+<div *ngFor="let stat of gradeStat; index as i; last as b">
+    <h4>{{ b }} {{ i }} {{ stat }}</h4>
+</div>
